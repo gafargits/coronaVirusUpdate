@@ -1,0 +1,24 @@
+.HeaderTypo {
+  text-transform: capitalize;
+}
+.Landing{
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  justify-content: center;
+}
+.GridContainer{
+  background-color: #51c9f5;
+  background: linear-gradient(-45deg, #0c9ed4 0%, #51c9f5 100%);
+  color: white;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+.Main{
+  background-color: rgba(204, 204, 204,0.1 );
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
