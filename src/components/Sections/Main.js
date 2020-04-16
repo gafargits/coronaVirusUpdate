@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Grid,
   Paper,
@@ -12,6 +13,7 @@ import {
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SwapVertIcon from '@material-ui/icons/SwapVert';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import myClass from './Main.module.css';
 
 import { GlobalContext } from "../../context/GlobalState";
@@ -33,7 +35,6 @@ const Main = () => {
     if (!data) {
       return;
     }
-    console.log(data)
     const affectedCountryByNumber = data.sort((a, b) => (a.TotalConfirmed > b.TotalConfirmed) ? -1 : 1);
     const topSix = affectedCountryByNumber.slice(0, 6);
     setTopSix(topSix)
@@ -98,9 +99,16 @@ const Main = () => {
           </Grid>
         </Fragment>
       ))}
-      <Button variant="contained" color="primary">
-        Primary
+      <Link to="/all" className={myClass.Link}>
+        <Button
+          variant="contained"
+          color="primary"
+          endIcon={<ArrowForwardIcon />}
+          className={myClass.Button}
+        >
+          See More...
       </Button>
+      </Link>
       <Dialog onClose={handleCloseDialog} aria-labelledby="customized-dialog-title" open={openDialog}>
         <DialogTitle id="customized-dialog-title" onClose={handleCloseDialog}>
           {countryOfInterest.Country}

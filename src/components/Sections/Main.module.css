@@ -22,3 +22,12 @@
   display: flex;
   align-items: center;
 }
+.Button{
+  align-self: flex-end;
+  background-color: #51c9f5;
+  background: linear-gradient(-45deg, #0c9ed4 0%, #51c9f5 100%);
+  
+}
+.Link{
+  text-decoration: none;
+}
