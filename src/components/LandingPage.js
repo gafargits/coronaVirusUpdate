@@ -5,11 +5,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 
 // core components
-import Header from "./Header";
 import Footer from "./Footer";
 import GridContainer from "./GridContainer.js";
 import GridItem from "./GridItem.js";
-import HeaderLinks from "./HeaderLinks.js";
+import Header from "./Header";
+import HeaderLinks from "./HeaderLinks";
 
 import styles from "../assets/jss/material-kit-react/views/landingPage.js";
 import myClass from './LandingPage.module.css';
@@ -17,13 +17,14 @@ import myClass from './LandingPage.module.css';
 // Sections for this page
 import Main from "./Sections/Main";
 
-const dashboardRoutes = [];
-
 const useStyles = makeStyles(styles);
 
 export default function LandingPage(props) {
   const classes = useStyles();
+
+  const dashboardRoutes = [];
   const { ...rest } = props;
+
   return (
     <div>
       <Header
@@ -38,6 +39,7 @@ export default function LandingPage(props) {
         }}
         {...rest}
       />
+
       <GridContainer className={myClass.GridContainer}>
         <GridItem xs={12} sm={12} md={6} className={classes.container}>
           <Typography variant="h2">
@@ -50,19 +52,11 @@ export default function LandingPage(props) {
         </GridItem>
       </GridContainer>
       <div className={myClass.Main}>
+        <Typography variant="h4" gutterBottom>
+          Six Top Affected Countries
+        </Typography>
         <Main />
-      </div>
-      {/* <WorkSection /> */}
-
-
-      {/* <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
-          <ProductSection />
-          <TeamSection />
-          <Main />
-          <WorkSection />
-        </div>
-      </div> */}
+      </div> 
       <Footer />
     </div>
   );

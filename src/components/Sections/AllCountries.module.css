@@ -1,0 +1,25 @@
+.PageHeader{
+  display: flex;
+}
+.OtherNavbar{
+  height: 3rem;
+  flex: 0 0 80%;
+}
+.FormControl{
+  height: initial;
+}
+.LeftSide{
+  flex: 0 0 70%;
+  display: flex;
+  align-items: center;
+}
+.RightSide{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: rgba(134, 218, 243, 0.479);
+  border-radius: 5px;
+}
+.RightSide input[type='text']{
+  color: white;
+}

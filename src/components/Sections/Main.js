@@ -54,42 +54,42 @@ const Main = () => {
     <Grid container className={myClass.Main}>
       {topSix.map(country => (
         <Fragment key={country.CountryCode}>
-          <Grid item xs={12} sm={4} m={3}>
+          <Grid item xs={12} sm={4} m={4}>
             <Paper className={myClass.Paper} onClick={() => countryDetailsHandler(country.CountryCode)}>
               <Typography variant="h5" gutterBottom>
                 {country.Country}
               </Typography>
-              <Typography variant="h6" gutterBottom className={myClass.Row}>
-                <span>Confirmed:</span>
+              <Typography variant="subtitle1" gutterBottom className={myClass.Row}>
+                <span className={myClass.Subtitle}>Confirmed:</span>
                 <span className={myClass.ValueAlign}>
                   <SwapVertIcon color="primary" />
                   {country.TotalConfirmed}
                 </span>
               </Typography>
-              <Typography variant="h6" gutterBottom className={myClass.Row}>
-                <span>Recovered: </span>
+              <Typography variant="subtitle1" gutterBottom className={myClass.Row}>
+                <span className={myClass.Subtitle}>Recovered: </span>
                 <span className={myClass.ValueAlign}>
                   <ArrowUpwardIcon color="primary" />
                   {country.TotalRecovered}
                 </span>
               </Typography>
-              <Typography variant="h6" gutterBottom className={myClass.Row}>
-                <span>Death:</span>
+              <Typography variant="subtitle1" gutterBottom className={myClass.Row}>
+                <span className={myClass.Subtitle}>Death:</span>
                 <span className={myClass.ValueAlign}>
                   <ArrowDownwardIcon color="secondary" />
                   {country.TotalDeaths}
                 </span>
               </Typography>
               <hr />
-              <Typography variant="h6" gutterBottom className={myClass.Row}>
-                <span>Percentage Recovered:</span>
+              <Typography variant="subtitle1" gutterBottom className={myClass.Row}>
+                <span className={myClass.Subtitle}>Percentage Recovered:</span>
                 <span className={myClass.ValueAlign}>
                   <ArrowUpwardIcon color="primary" />
                   {((+country.TotalRecovered / +country.TotalConfirmed) * 100).toFixed(2)}{"%"}
                 </span>
               </Typography>
-              <Typography variant="h6" gutterBottom className={myClass.Row}>
-                <span>Percentage Death:</span>
+              <Typography variant="subtitle1" gutterBottom className={myClass.Row}>
+                <span className={myClass.Subtitle}>Percentage Death:</span>
                 <span className={myClass.ValueAlign}>
                   <ArrowDownwardIcon color="secondary" />
                   {((+country.TotalDeaths / +country.TotalConfirmed) * 100).toFixed(2)}{"%"}

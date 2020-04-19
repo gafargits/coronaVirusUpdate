@@ -5,7 +5,8 @@ import axios from 'axios';
 const initialState = {
   data: [],
   error: null,
-  loading: true
+  loading: true,
+  searchString: ''
 }
 
 export const GlobalContext = createContext(initialState);
@@ -30,6 +31,13 @@ export const GlobalProvider = ({children}) => {
       })
     }
   }
+
+  // const searchData = searchString => {
+  //   dispatch({
+  //     type: 'SEARCH_DATA',
+  //     payload: ''
+  //   })
+  // }
 
   return(<GlobalContext.Provider value={{
     data: state.data,

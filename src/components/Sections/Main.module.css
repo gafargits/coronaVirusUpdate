@@ -16,7 +16,7 @@
 }
 .Row{
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .ValueAlign{
   display: flex;
@@ -30,4 +30,10 @@
 }
 .Link{
   text-decoration: none;
+}
+.Subtitle{
+  flex: 0 0 70%;
+}
+.TopPart{
+  display: block;
 }
