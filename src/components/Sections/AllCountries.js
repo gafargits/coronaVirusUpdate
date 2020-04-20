@@ -19,7 +19,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { GlobalContext } from "../../context/GlobalState";
 
 import myClass from './AllCountries.module.css';
-
+import {percentage} from './percentage';
 
 const AllCountries = () => {
   const { data, getData } = useContext(GlobalContext);
@@ -100,8 +100,8 @@ const AllCountries = () => {
                 <TableCell align="right">{country.TotalConfirmed}</TableCell>
                 <TableCell align="right">{country.TotalRecovered}</TableCell>
                 <TableCell align="right">{country.TotalDeaths}</TableCell>
-                <TableCell align="right">{((+country.TotalRecovered / +country.TotalConfirmed) * 100).toFixed(2)}{"%"}</TableCell>
-                <TableCell align="right">{((+country.TotalDeaths / +country.TotalConfirmed) * 100).toFixed(2)}{"%"}</TableCell>
+                <TableCell align="right">{percentage(country.TotalRecovered, country.TotalConfirmed)}{"%"}</TableCell>
+                <TableCell align="right">{percentage(country.TotalDeaths, country.TotalConfirmed)}{"%"}</TableCell>
               </TableRow>
             ))}
           </TableBody>

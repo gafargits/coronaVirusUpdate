@@ -4,10 +4,6 @@ import {
   Grid,
   Paper,
   Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
   Button
 } from '@material-ui/core';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
@@ -15,7 +11,8 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import SwapVertIcon from '@material-ui/icons/SwapVert';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import myClass from './Main.module.css';
-
+import { Details } from './Details';
+import { percentage } from './percentage'
 import { GlobalContext } from "../../context/GlobalState";
 
 const Main = () => {
@@ -85,14 +82,14 @@ const Main = () => {
                 <span className={myClass.Subtitle}>Percentage Recovered:</span>
                 <span className={myClass.ValueAlign}>
                   <ArrowUpwardIcon color="primary" />
-                  {((+country.TotalRecovered / +country.TotalConfirmed) * 100).toFixed(2)}{"%"}
+                  {percentage(country.TotalRecovered, country.TotalConfirmed)}{"%"}
                 </span>
               </Typography>
               <Typography variant="subtitle1" gutterBottom className={myClass.Row}>
                 <span className={myClass.Subtitle}>Percentage Death:</span>
                 <span className={myClass.ValueAlign}>
                   <ArrowDownwardIcon color="secondary" />
-                  {((+country.TotalDeaths / +country.TotalConfirmed) * 100).toFixed(2)}{"%"}
+                  {percentage(country.TotalDeaths, country.TotalConfirmed)}{"%"}
                 </span>
               </Typography>
             </Paper>
@@ -109,7 +106,12 @@ const Main = () => {
           See More...
       </Button>
       </Link>
-      <Dialog onClose={handleCloseDialog} aria-labelledby="customized-dialog-title" open={openDialog}>
+      <Details
+        openDialog={openDialog}
+        closeDialog={handleCloseDialog}
+        countryOfInterest={countryOfInterest}
+      />
+      {/* <Dialog onClose={handleCloseDialog} aria-labelledby="customized-dialog-title" open={openDialog}>
         <DialogTitle id="customized-dialog-title" onClose={handleCloseDialog}>
           {countryOfInterest.Country}
         </DialogTitle>
@@ -133,7 +135,7 @@ const Main = () => {
             Got It!
           </Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
     </Grid>
   )
 }

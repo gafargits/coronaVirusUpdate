@@ -53,7 +53,7 @@ export default function LandingPage(props) {
       </GridContainer>
       <div className={myClass.Main}>
         <Typography variant="h4" gutterBottom>
-          Six Top Affected Countries
+          Top Six Affected Countries
         </Typography>
         <Main />
       </div> 

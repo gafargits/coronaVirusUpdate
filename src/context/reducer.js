@@ -6,6 +6,12 @@ export default(state, action) => {
         loading: false,
         data: action.payload
       }
+    case 'GET_HISTORY':
+      return{
+        ...state,
+        loading: false,
+        history: action.payload
+      }
     case 'DATA_ERROR':
       return{
         ...state,
