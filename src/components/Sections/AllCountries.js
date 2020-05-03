@@ -19,12 +19,17 @@ import SearchIcon from '@material-ui/icons/Search';
 import { GlobalContext } from "../../context/GlobalState";
 
 import myClass from './AllCountries.module.css';
-import {percentage} from './percentage';
+import { percentage } from './percentage';
+import { Details } from './Details';
+import { Link } from 'react-router-dom';
 
 const AllCountries = () => {
   const { data, getData } = useContext(GlobalContext);
   const [countries, setCountries] = useState([]);
+  const [openDialog, setOpenDialog] = useState(false);
   const [searchString, setSearchString] = useState('');
+  const [countryOfInterest, setCountryOfInterest] = useState({});
+
   useEffect(() => {
     getData()
     //eslint-disable-next-line react-hooks/exhaustive-deps
@@ -44,6 +49,16 @@ const AllCountries = () => {
     setSearchString(e.target.value)
   }
 
+  const handleCloseDialog = () => {
+    setOpenDialog(false)
+  }
+
+  const handleCountryOfInterest = id => {
+    const countryOfInterest = countries.filter((country, index) => country.CountryCode === id)
+    setCountryOfInterest(countryOfInterest[0])
+    setOpenDialog(true)
+  }
+
   return (
     <div>
       <AppBar position="static">
@@ -56,9 +71,12 @@ const AllCountries = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap>
-              Covid 19 Updates
-        </Typography>
+            <Link to="/" className={myClass.Link}>
+              <Typography variant="h6" noWrap>
+                Covid 19 Updates
+              </Typography>
+            </Link>
+
           </div>
           <div className={myClass.RightSide}>
             <div className={myClass.searchIcon}>
@@ -94,7 +112,7 @@ const AllCountries = () => {
                 <TableCell component="th" scope="row">
                   {+index + 1}
                 </TableCell>
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" onClick={() => handleCountryOfInterest(country.CountryCode)} style={{ cursor: 'pointer' }}>
                   {country.Country}
                 </TableCell>
                 <TableCell align="right">{country.TotalConfirmed}</TableCell>
@@ -107,6 +125,12 @@ const AllCountries = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <Details
+        closeDialog={handleCloseDialog}
+        openDialog={openDialog}
+        countryOfInterest={countryOfInterest}
+        countries={countries}
+      />
     </div>
   )
 }

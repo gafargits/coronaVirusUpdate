@@ -23,3 +23,7 @@
 .RightSide input[type='text']{
   color: white;
 }
+.Link{
+  text-decoration: none;
+  color: white;
+}
